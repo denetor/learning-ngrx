@@ -1,1 +1,4 @@
-<p>index works!</p>
+<h1>Products index</h1>
+<ul>
+  <li *ngFor="let product of products$ | async">{{ product?.name }}</li>
+</ul>
