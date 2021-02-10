@@ -1,3 +1,3 @@
 import { createAction } from '@ngrx/store';
 
-export const index = createAction('[ProductsIndex Component] Index');
+export const index = createAction('[Products Component] Index');
