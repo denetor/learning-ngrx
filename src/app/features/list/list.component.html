@@ -3,6 +3,7 @@
   <button (click)="pushRandom()">Push random item</button>
   <button (click)="popItem()">Pop last item</button>
 </div>
+<div>Listing {{ listCount$ | async }} items</div>
 <ul>
   <li *ngFor="let item of list$ | async">{{ item }}</li>
 </ul>

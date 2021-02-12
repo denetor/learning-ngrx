@@ -15,6 +15,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import { ListComponent } from './features/list/list.component';
 import {listReducer} from './store/reducers/list.reducer';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,13 @@ import {listReducer} from './store/reducers/list.reducer';
     AppRoutingModule,
     ProductsModule,
     HttpClientModule,
-    StoreDevtoolsModule.instrument({maxAge: 10}),
-    StoreModule.forRoot({count: counterReducer, list: listReducer, products: productsReducer, catfacts: catfactsReducer }),
+    StoreModule.forRoot({
+      count: counterReducer,
+      list: listReducer,
+      products: productsReducer,
+      catfacts: catfactsReducer
+    }),
+    StoreDevtoolsModule.instrument({maxAge: 10, logOnly: environment.production}),
     EffectsModule.forRoot([CatfactsEffects]),
   ],
   providers: [],

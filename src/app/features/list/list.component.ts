@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Store} from '@ngrx/store';
+import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {pop, push} from '../../store/actions/list.actions';
+import {selectListCount} from '../../store/selectors/list.selectors';
 
 @Component({
   selector: 'app-list',
@@ -10,11 +11,13 @@ import {pop, push} from '../../store/actions/list.actions';
 })
 export class ListComponent implements OnInit {
   list$: Observable<string[]>;
+  listCount$: Observable<number>;
 
   constructor(
     private store: Store<{ list: string[] }>
   ) {
-    this.list$ = store.select('list');
+    this.list$ = this.store.select('list');
+    this.listCount$ = this.store.pipe(select(selectListCount));
   }
 
   ngOnInit() {

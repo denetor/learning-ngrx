@@ -8,14 +8,18 @@ export const listReducer = createReducer(
   }),
   on(push, (state, {s}) => {
     if (s) {
-      state.push(s);
+      return [...state, s];
     }
     return state;
   }),
   on(pop, (state) => {
     // pop: removes last item from store
     if (state.length > 0) {
-      state.splice(state.length - 1, 1);
+      const newState = [];
+      for (let i = 0; i < state.length - 1; i++) {
+        newState.push(state[i]);
+      }
+      return newState;
     }
     return state;
   })
