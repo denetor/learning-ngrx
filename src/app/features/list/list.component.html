@@ -1,7 +1,9 @@
 <h2>Simple string list with redux</h2>
+<div>
+  <button (click)="pushRandom()">Push random item</button>
+  <button (click)="popItem()">Pop last item</button>
+</div>
 <ul>
   <li *ngFor="let item of list$ | async">{{ item }}</li>
 </ul>
-<div>
-  <button (click)="addRandomString()">Add random string</button>
-</div>
+

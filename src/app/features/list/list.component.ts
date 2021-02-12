@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {push} from '../../store/actions/list.actions';
+import {pop, push} from '../../store/actions/list.actions';
 
 @Component({
   selector: 'app-list',
@@ -20,9 +20,13 @@ export class ListComponent implements OnInit {
   ngOnInit() {
   }
 
-  addRandomString(): void {
+  pushRandom(): void {
     const s = this.generateRandomString(3);
     this.store.dispatch(push({s}));
+  }
+
+  popItem(): void {
+    this.store.dispatch(pop());
   }
 
   generateRandomString(length: number): string {
