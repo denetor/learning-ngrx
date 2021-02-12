@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent as ProductsIndexComponent } from './features/products/index/index.component';
 import {CounterComponent} from './features/counter/counter.component';
 import {CatfactsComponent} from './features/catfacts/catfacts.component';
+import {ListComponent} from './features/list/list.component';
 
 
 const routes: Routes = [
   {path: 'counter', component: CounterComponent},
+  {path: 'list', component: ListComponent},
   {path: 'catfacts', component: CatfactsComponent},
   {path: 'products/index', component: ProductsIndexComponent}
 ];
