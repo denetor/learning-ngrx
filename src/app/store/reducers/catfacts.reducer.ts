@@ -1,12 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import { increment, decrement, reset } from '../actions/counter.actions';
+import {getSome} from '../actions/catfacts.actions';
 
-export const initialState = [{_id: 'initial', text: 'state'}];
-
-const _catfactsReducer = createReducer(
-  initialState
+export const catfactsReducer = createReducer(
+  [] as any[],
+  on(getSome, (state, action) => {
+    return state;
+  })
 );
-
-export function catfactsReducer(state, action) {
-  return _catfactsReducer(state, action);
-}

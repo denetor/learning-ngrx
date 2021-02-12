@@ -9,12 +9,12 @@ import { EMPTY } from 'rxjs';
 @Injectable()
 export class CatfactsEffects {
   loadCatfacts$ = createEffect(() => this.actions$.pipe(
-    ofType('[Catfacts] Get some'),
+    ofType('[catfacts] getSome'),
     mergeMap(() => this.catfactsService.getSome()
       .pipe(
         map(catfacts => {
           console.log({method: 'createEffect', catfacts});
-          return {type: '[Catfacts] Some catfacts loaded successfully', payload: catfacts};
+          return {type: '[catfacts] getSome succeeded', payload: catfacts};
         }),
         catchError(() => EMPTY)
       )

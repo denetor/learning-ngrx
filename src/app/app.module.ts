@@ -12,6 +12,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {CatfactsEffects} from './store/effects/catfacts.effects';
 import {catfactsReducer} from './store/reducers/catfacts.reducer';
 import {HttpClientModule} from '@angular/common/http';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     ProductsModule,
     HttpClientModule,
+    StoreDevtoolsModule.instrument({maxAge: 10}),
     StoreModule.forRoot({count: counterReducer, products: productsReducer, catfacts: catfactsReducer }),
     EffectsModule.forRoot([CatfactsEffects]),
   ],
