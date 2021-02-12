@@ -2,3 +2,6 @@
 <ul>
   <li *ngFor="let item of list$ | async">{{ item }}</li>
 </ul>
+<div>
+  <button (click)="addRandomString()">Add random string</button>
+</div>
