@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Store, select} from '@ngrx/store';
-import {index} from '../../../store/actions/products.actions';
+import {index, insert} from '../../../store/actions/products.actions';
 
 @Component({
   selector: 'ndr-products-index',
@@ -19,6 +19,13 @@ export class IndexComponent implements OnInit {
 
     ngOnInit() {
       this.store.dispatch(index());
+    }
+
+    createProduct() {
+      this.store.dispatch(insert({
+        id: Math.random() * 100,
+        name: 'NewItem' + Math.random() * 100
+      }));
     }
 
 }

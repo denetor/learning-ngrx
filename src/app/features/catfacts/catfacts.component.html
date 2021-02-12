@@ -1,0 +1,4 @@
+<h2>Cat facts</h2>
+<li *ngFor="let fact of catfacts$ | async">
+  {{ fact._id }}: {{ fact.text }}
+</li>
