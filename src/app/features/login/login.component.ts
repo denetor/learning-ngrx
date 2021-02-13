@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
-import {LoginDto, LoginItem} from '../../store/models/login.model';
+import {LoginDto} from '../../store/models/login.model';
 import {authenticate} from '../../store/actions/login.actions';
 import {AppState} from '../../app.module';
+import * as fromAuth from '../../store/reducers/login.reducer';
+import {AuthState} from '../../store/reducers/login.reducer';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ import {AppState} from '../../app.module';
   styleUrls: ['./login.component.sass']
 })
 export class LoginComponent implements OnInit {
-  login$: Observable<LoginItem>;
+  login$: Observable<AuthState>;
   email = '';
   password = '';
 

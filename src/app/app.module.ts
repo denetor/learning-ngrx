@@ -19,14 +19,14 @@ import {environment} from '../environments/environment';
 import { LoginComponent } from './features/login/login.component';
 import {FormsModule} from '@angular/forms';
 import {loginReducer} from './store/reducers/login.reducer';
-import {LoginItem} from './store/models/login.model';
 import {LoginEffects} from './store/effects/login.effects';
+import * as fromAuth from './store/reducers/login.reducer';
 
 export interface AppState {
   count: number;
   list: string[];
   catfacts: any[];
-  login: LoginItem;
+  login: fromAuth.AuthState;
   products: any;
 }
 

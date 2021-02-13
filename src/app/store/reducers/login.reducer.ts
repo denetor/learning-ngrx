@@ -1,10 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
 import {authenticate, authenticateSuccess} from '../actions/login.actions';
 
-const initialState = {access_token: null};
-
-class AuthState {
+export interface AuthState {
+  access_token: string | null;
 }
+
+const initialState: AuthState = {
+  access_token: null
+};
 
 export const loginReducer = createReducer(
   initialState,
