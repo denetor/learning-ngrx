@@ -14,7 +14,7 @@ export class CatfactsEffects {
       .pipe(
         map(catfacts => {
           console.log({method: 'createEffect', catfacts});
-          return {type: '[catfacts] getSome succeeded', payload: catfacts};
+          return {type: '[catfacts] getSome success', payload: catfacts};
         }),
         catchError(() => EMPTY)
       )
